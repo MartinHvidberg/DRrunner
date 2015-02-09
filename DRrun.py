@@ -6,7 +6,17 @@
 import DRrunner_execute
 
 if __name__ == "__main__":
-    DRrunner_execute.DRrun()
+    
+    # Set reviewer workspace
+    reviewer_db = r"C:\Martin\Work\DR.gdb"
+    
+    # reviewer batch job file
+    str_filename_rbj = r"C:\Martin\Work\DRrun_test.rbj"
+    
+    # production database - contains data to validate
+    str_data_db = "C:\Martin\NIScopy140830.gdb" # "C:/gisdata/Edit_Sample.sde"
+    
+    DRrunner_execute.DRrun(reviewer_db, str_filename_rbj, str_data_db)
 
 # Music that accompanied the coding of this script:
 #   
