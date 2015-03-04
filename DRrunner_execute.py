@@ -31,8 +31,6 @@ def DRrun(str_dr_db, str_filename_rbj, str_data_db):
     # Execute Reviewer Batch Job function
     print "Executing DR batch job: "+str_filename_rbj
     res = arcpy.ExecuteReviewerBatchJob_Reviewer(str_dr_db, drs_session, str_filename_rbj, str_data_db)
-    for itm in res:
-        print "    < res> : "+str(itm)
     print "   DR execute rbj - Success"
     
     # get the output table
