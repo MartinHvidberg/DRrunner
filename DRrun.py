@@ -6,6 +6,7 @@
 import sys
 import os.path
 import DRrunner_execute
+import DRrunner_reporter
 
 if __name__ == "__main__":
     
@@ -16,7 +17,8 @@ if __name__ == "__main__":
     # reviewer batch job file
     str_filename_rbj = r"C:\Martin\Work\NamesA_DomainsCheck.rbj"    
     # production database - contains data to validate
-    str_data_db = "C:\Martin\Work\mahvi_1135_Qaqortoq.gdb" # "C:/gisdata/Edit_Sample.sde"    
+    str_data_db = "C:\Martin\Work\GNDB.gdb" # "C:/gisdata/Edit_Sample.sde"    
+    
     # Check existance and validity of the above parameters
     if not os.path.exists(reviewer_db):
         print "Can't find reviewer_db: "+reviewer_db
@@ -29,15 +31,21 @@ if __name__ == "__main__":
         sys.exit(-3)
         
     # *** Run the checks
-    
+     
     # Run
     lst_run_ids = list()
     lst_run_ids.append(DRrunner_execute.DRrun(reviewer_db, str_filename_rbj, str_data_db))
     print "Done running - returning following ids:"
     for run_id in lst_run_ids:
-        print "    : "+str(run_id)
+        print "    runID: "+str(run_id)
     
-    # Optionally display the errors found ...
+    # *** Optionally display the errors found ...
+     
+    lst_error_reports = list()
+    for id_i in lst_run_ids:
+        dic_error_report = DRrunner_reporter.make_report_of_errors(reviewer_db, id_i)
+        DRrunner_reporter.show_report(dic_error_report)
+    DRrunner_reporter.email_reports(lst_error_reports)
     
 
 # Music that accompanied the coding of this script:
