@@ -13,18 +13,18 @@ if __name__ == "__main__":
     # *** Setup parameters
     
     # Set reviewer workspace
-    reviewer_db = r"C:\Martin\Work\Data_Reviewer\DRrunner_10_3.gdb"    
+    reviewer_db = r"C:\Martin\Work\DR_runner_10_3_GR96.gdb"    
     # reviewer batch job file
     str_filename_rbj = r"C:\Martin\Work\NamesA_DomainsCheck.rbj"    
     # production database - contains data to validate
-    str_data_db = "C:\Martin\Work\GNDB.gdb" # "C:/gisdata/Edit_Sample.sde"    
+    str_data_db = "C:\Martin\Work\NIScopy.gdb" # "C:/gisdata/Edit_Sample.sde"    
     
     # Check existance and validity of the above parameters
     if not os.path.exists(reviewer_db):
         print "Can't find reviewer_db: "+reviewer_db
         sys.exit(101)
     if not os.path.exists(str_filename_rbj):
-        print "Can't find str_filename_rbj: "+str_filename_rbj
+        print "Can't find filename_rbj: "+str_filename_rbj
         sys.exit(102)
     if not os.path.exists(str_data_db):
         print "Can't find data_db: "+str_data_db
@@ -50,4 +50,5 @@ if __name__ == "__main__":
     
 
 # Music that accompanied the coding of this script:
+#    Doors - L.A.Woman
 #   
