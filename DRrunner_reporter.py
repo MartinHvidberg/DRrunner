@@ -7,7 +7,7 @@
 import arcpy
 
 def make_report_of_errors(DR_db, run_nr):
-    print "make_report_of_errors() : "+str(DR_db) + " / " + str(run_nr)
+    print " > DRrunner_reporter.make_report_of_errors() : "+str(DR_db) + " / " + str(run_nr)
     dic_return = dict()
     # SearchCursor (in_table, field_names, {where_clause}, {spatial_reference}, {explode_to_points}, {sql_clause})
     fc_rcrt = DR_db+"\REVCHECKRUNTABLE"
@@ -49,6 +49,7 @@ def make_report_of_errors(DR_db, run_nr):
             #    print "    No match:"
             #    print "        " + str_this_batchrunid
             #    print "        " + run_nr
+    print " < DRrunner_reporter.make_report_of_errors() Done ... : "+str(DR_db) + " / " + str(run_nr)
     return dic_return
 
 def show_report(report):

@@ -9,7 +9,7 @@ import arcpy
 arcpy.CheckOutExtension("datareviewer")
 
 def DRrun(str_dr_db, str_filename_rbj, str_data_db):
-    print "DRrunner_execute()", str_dr_db, str_filename_rbj, str_data_db
+    print " > DRrunner_execute()", str_dr_db, str_filename_rbj, str_data_db
     
     # Description: Executes a reviewer batch job
     # Requirements: Production Mapping extension
@@ -45,6 +45,7 @@ def DRrun(str_dr_db, str_filename_rbj, str_data_db):
     # Check in the Data Reviewer extension
     arcpy.CheckInExtension("datareviewer")
     
+    print " < DRrunner_execute() - Done...", str_dr_db, str_filename_rbj, str_data_db
     return str_batch_run_id
 
     # ------ End def DRrun() -------------
