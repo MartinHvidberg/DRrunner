@@ -17,7 +17,7 @@ def make_report_of_errors(DR_db, run_nr):
         for row_rcrt in cursor_rcrt:
             str_this_batchrunid = row_rcrt[0] # Because "BATCHRUNID" is first in fields_rcrt ...
             if str_this_batchrunid == run_nr:
-                print "    ====== REVRUNCHECKTABLE ============="
+                print "    ====== REVCHECKRUNTABLE ============="
                 for i in range(len(fields_rcrt)):
                     print "    "+fields_rcrt[i] + " : " + str(row_rcrt[i])
                     dic_return[fields_rcrt[i]] = str(row_rcrt[i])
@@ -25,7 +25,7 @@ def make_report_of_errors(DR_db, run_nr):
                 if int(dic_return["TOTALRESULTS"]) > 0:
                     dic_return["Error"] = list()
                     fc_rtm = DR_db+"\REVTABLEMAIN"
-                    fields_rtm = ["SESSIONID", "OBJECTID", "ORIGINTABLE", "REVIEWSTATUS"]
+                    fields_rtm = ["SESSIONID", "OBJECTID", "ORIGINTABLE", "SUBTYPE", "REVIEWSTATUS", "REVIEWDATE"]
                     with arcpy.da.SearchCursor(fc_rtm, fields_rtm) as cursor_rtm:
                         for row_rtm in cursor_rtm:
                             dic_error = dict()
@@ -35,9 +35,9 @@ def make_report_of_errors(DR_db, run_nr):
                                 print "    >    ------ REVTABLEMAIN --------------"
                                 for j in range(len(fields_rtm)):
                                     if j>0: # Don't save SESSIONID again
-                                        #print "    >    "+fields_rtm[j] + " : " + str(row_rtm[j])
+                                        print "    >    "+fields_rtm[j] + " : " + str(row_rtm[j])
                                         dic_error[fields_rtm[j]] = str(row_rtm[j])
-                                print "    dic_error:", dic_error
+                                #print "    dic_error:", dic_error
                                 lst_errors = dic_return["Error"]
                                 lst_errors.append(dic_error)
                                 dic_return["Error"] = lst_errors   
@@ -53,7 +53,9 @@ def make_report_of_errors(DR_db, run_nr):
     return dic_return
 
 def show_report(report):
-    print " XXX I show one report ..."
+    print " --- Showing 1 report ------"
+    print report
+    print " ---------------------------"
     return
 
 def email_reports(lst_reports):

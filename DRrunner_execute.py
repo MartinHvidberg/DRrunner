@@ -37,7 +37,7 @@ def DRrun(str_dr_db, str_filename_rbj, str_data_db):
     print "   DR execute rbj - Success"
     
     # get the output table
-    print "Show results:"
+    print "Show results 1 of "+str(len(res))+" (recordid, globalid, batchjobfile,runcontext, status, starttime, endtime) :"
     tbl = res.getOutput(0)
     # query the table
     for row in arcpy.da.SearchCursor(tbl,("*")):

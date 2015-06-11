@@ -45,7 +45,7 @@ if __name__ == "__main__":
     lst_error_reports = list()
     for id_i in lst_run_ids:
         dic_error_report = DRrunner_reporter.make_report_of_errors(reviewer_db, id_i)
-        print "\nThis is the raw report:\n"+str(dic_error_report)
+        #print "\nThis is the raw report:\n"+str(dic_error_report)
         DRrunner_reporter.show_report(dic_error_report)
     DRrunner_reporter.email_reports(lst_error_reports)
     
