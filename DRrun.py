@@ -11,6 +11,7 @@ import DRrunner_reporter
 if __name__ == "__main__":
     
     # *** Setup parameters
+    arcpy.env.overwriteOutput="true"
     
     # Set reviewer workspace
     reviewer_db = r"C:\Martin\Work\DR_runner_10_3_GR96.gdb"    

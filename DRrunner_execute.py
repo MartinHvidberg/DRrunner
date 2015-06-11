@@ -18,12 +18,15 @@ def DRrun(str_dr_db, str_filename_rbj, str_data_db):
     
     # Delete, and then Create, the DR-session, to make sure it's clean.
     print "Starting DR session"
-    str_session = "DRrunner"
+    str_session = "DRrunner" # A simple string wont cut it, I need to collect the full names ... XXX
     try:
         arcpy.DeleteReviewerSession_Reviewer(str_dr_db, str_session)
+        # XXX Consider to delete all sessions older than e.g. 1 month.
+        # session="Session 1 : qc01"
+        # arcpy.DeleteReviewerSession_Reviewer(reviewer_gdb,session)
+
     except:
-        print "   Session didn't exist ..."
-    print "creating session"
+        pass # print "   Session didn't exist - deleting nothing ..."
     drs_session = arcpy.CreateReviewerSession_Reviewer(str_dr_db, str_session)
     #Session = arcpy.CreateReviewerSession_Reviewer(Reviewer_workspace , "TestSession", "Session 1 : Session 1")
     print "   DR session Create - Success : ", str(drs_session)
@@ -45,7 +48,7 @@ def DRrun(str_dr_db, str_filename_rbj, str_data_db):
     # Check in the Data Reviewer extension
     arcpy.CheckInExtension("datareviewer")
     
-    print " < DRrunner_execute() - Done...", str_dr_db, str_filename_rbj, str_data_db
+    print " < DRrunner_execute() - Done... : ", str_batch_run_id
     return str_batch_run_id
 
     # ------ End def DRrun() -------------
