@@ -18,7 +18,7 @@ if __name__ == "__main__":
     arcpy.env.overwriteOutput="true"    
     # Set reviewer workspace
     reviewer_db = r"C:\Martin\Work\DR_runner_10_3_GR96.gdb"    
-    # reviewer batch job file
+    # reviewer batch job file(s)
     lst_filename_rbj = [r"C:\Martin\Work\DRrunner_check1.rbj",r"C:\Martin\Work\DRrunner_check2.rbj"]    
     # production database - contains data to validate
     str_data_db = "C:\Martin\Work\NIScopy.gdb" # "C:/gisdata/Edit_Sample.sde"      
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     lst_error_reports = list()
     for id_i in lst_run_ids:
         dic_error_report = DRrunner_reporter.make_report_of_errors(reviewer_db, id_i)
-        print "\n* This is the raw report:\n"+str(dic_error_report)
+        #print "DRrun : raw report: "+str(dic_error_report)
         DRrunner_reporter.show_report(dic_error_report)
     DRrunner_reporter.email_reports(lst_error_reports)    
     print "DRrun : Reporting phase End ..."
