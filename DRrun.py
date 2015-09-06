@@ -16,7 +16,7 @@ if __name__ == "__main__":
     # Set reviewer workspace
     reviewer_db = r"C:\Martin\Work\DR_runner_10_3_GR96.gdb"    
     # reviewer batch job file
-    str_filename_rbj = r"C:\Martin\Work\DRrunner_check.rbj"    
+    str_filename_rbj = r"C:\Martin\Work\DRrunner_check.rbj" # XXX <------ Change this to list of file names    
     # production database - contains data to validate
     str_data_db = "C:\Martin\Work\NIScopy.gdb" # "C:/gisdata/Edit_Sample.sde"    
     
