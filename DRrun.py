@@ -16,7 +16,7 @@ if __name__ == "__main__":
     print "DRrun : Init phase Begin ..."    
     arcpy.env.overwriteOutput="true"    
     # Set reviewer workspace
-    reviewer_db = r"C:\Martin\Work\DR_runner_10_3_GR96.gdb"   
+    reviewer_db = r"DR_runner_10_3_GR96.gdb"   
     if not os.path.exists(reviewer_db):
         print "!!! Can't find reviewer_db: "+reviewer_db
         sys.exit(101) 
@@ -43,7 +43,7 @@ if __name__ == "__main__":
             print "DRrun : !!! While processing "+fil_ecbrbj+" : Can't find filename_rbj: "+str_filename_rbj
     lst_filename_rbj = lst_filenames_good
     # production database - contains data to validate
-    str_data_db = "C:\Martin\Work\NIScopy.gdb" # "C:/gisdata/Edit_Sample.sde"   
+    str_data_db = "nisreader@green3.sde"  # "C:/gisdata/Edit_Sample.sde" # "C:\Martin\Work\NIScopy.gdb"   
     if not os.path.exists(str_data_db):
         print "!!! Can't find data_db: "+str_data_db
         sys.exit(104)   

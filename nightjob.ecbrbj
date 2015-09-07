@@ -1,7 +1,6 @@
 # This is a DRrun batch file
 # Each line should contain exactely one .rbj file
-# Please write full path
+# Please write without path if same as DRrun.py, otherwise full path.
 
-C:\Martin\Work\DRrunner_check1.rbj
-qwerty
-C:\Martin\Work\DRrunner_check2.rbj
+DRrunner_check1.rbj
+DRrunner_check2.rbj
