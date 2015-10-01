@@ -12,7 +12,23 @@ import DRrunner_reporter
 if __name__ == "__main__":
     
     # *** Init
-    
+    # ** Load init file"
+    if len(sys.argv) < 1:
+        print "No ini file given."
+        print " Usage: DRrun.py <ini_file>"
+        sys.exit(201)
+    else:
+        try:
+            with open("newtext.txt") as file:    # Use file to refer to the file object
+                data = file.read()
+                do something with data
+        except:
+            print "Can't open or read ini file."
+            print " Usage: DRrun.py <ini_file>"
+            sys.exit(202)
+            
+    print 'Argument List:', str(sys.argv)
+    # ** init 
     print "DRrun : Init phase Begin ..."    
     arcpy.env.overwriteOutput="true"    
     # Set reviewer workspace
