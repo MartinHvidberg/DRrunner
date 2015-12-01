@@ -3,7 +3,21 @@
 # It's supposed to be called from either the Commendline- or the ArcMapGUI-module
 # You Very likely want to run the DRrunner_execute.py before this module.
 
+import os
 import arcpy
+
+def eye(DR_db):
+    ''' eye inside a .gdb '''
+    arcpy.env.workspace = DR_db
+    print 'Processing ', arcpy.env.workspace
+    fcs = []
+    for fds in arcpy.ListDatasets('','feature') + ['']:
+        for fc in arcpy.ListTables():
+            #yield os.path.join(fds, fc)
+            fcs.append(os.path.join(fds, fc))
+    
+    for fc in fcs:
+        print fc
 
 def make_report_of_errors(DR_db, run_nr):
     # XXX This function should not print so much, if at all ...
